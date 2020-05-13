@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "EVotoMo\\": "src/"
+        }
+    },
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.1",
+        "vlucas/phpdotenv": "^4.1",
+        "firebase/php-jwt": "^5.2",
+        "illuminate/database": "^7.11"
+    }
+}
