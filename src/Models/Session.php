@@ -16,4 +16,12 @@ class Session extends Model {
     public function user() {
         return $this->hasOne(Account::class, 'id', 'added_by');
     }
+
+    public function getVoteStartAttribute($value) {
+        return date('M d, Y h:iA', strtotime($value));
+    }
+
+    public function getVoteEndAttribute($value) {
+        return date('M d, Y h:iA', strtotime($value));
+    }
 }

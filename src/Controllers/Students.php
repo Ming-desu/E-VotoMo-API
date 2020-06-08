@@ -32,7 +32,8 @@ class Students {
     }
 
     public function store(Request $request, Response $response) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $student_number = $_POST['student_number'];
         $firstname = $_POST['firstname'];
@@ -67,7 +68,8 @@ class Students {
     }
 
     public function update(Request $request, Response $response) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $id = $_POST['id'];
         $student_number = $_POST['student_number'];
@@ -109,7 +111,8 @@ class Students {
     }
 
     public function delete(Request $request, Response $response) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $id = $_POST['id'];
 

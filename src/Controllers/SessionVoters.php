@@ -17,7 +17,8 @@ class SessionVoters {
     }
 
     public function store(Request $request, Response $response, $args) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $session_id = $args['id'];
         $student_id = $_POST['student_id'];
@@ -44,7 +45,8 @@ class SessionVoters {
     }
 
     public function update(Request $request, Response $response, $args) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $session_id = $args['id'];
         $session_voter_id = $_POST['id'];

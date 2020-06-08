@@ -21,7 +21,8 @@ class Candidates {
     }
 
     public function store(Request $request, Response $response) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $session_id = $_POST['session_id'];
         $student_id = $_POST['student_id'];
@@ -53,7 +54,8 @@ class Candidates {
     }
 
     public function delete(Request $request, Response $response) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $id = $_POST['id'];
 

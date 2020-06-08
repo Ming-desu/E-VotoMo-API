@@ -14,7 +14,8 @@ class Votes {
     // TODO :: Implement checking if the voter is currently a member of this session
     // Also do check if the voter has already voted
     public function store(Request $request, Response $response, $args) : Response {
-        $_POST = (array)json_decode(file_get_contents("php://input", true));
+        if (count($_POST) == 0)
+            $_POST = (array)json_decode(file_get_contents("php://input", true));
 
         $session_id = $args['id'];
         $student_id = $_POST['student_id'];
